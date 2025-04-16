@@ -5,9 +5,9 @@ let score = 100;
 score = 200; 
 console.log(score);
 
-const name = "John";
-name = "Sritejaswini"
-console.log(name);
+let Username = "John";
+Username = "Sritejaswini"
+console.log(Username);
 
 //const variable
 const pi = 3.14;

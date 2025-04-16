@@ -40,6 +40,6 @@ console.log(sum(880, 20));
         },5000);
  }
  function displayData() {
-    console.log(" data is displayed")
+    console.log("data is displayed")
  }
 fetchData(displayData);
