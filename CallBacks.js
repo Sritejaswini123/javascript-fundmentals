@@ -100,3 +100,54 @@ callback();
           console.log("Something went wrong:", error);
         });
       
+        //Stsatic methods in Promise API
+        //Promise.all() method -  Waits for all promises to fulfill, or rejects immediately on the first rejection.
+        const p1 = Promise.resolve(1);
+        const p2 = Promise.resolve(2);
+        const p3 = Promise.resolve(3);
+        const p4 = Promise.reject("Error");
+        
+        Promise.all([p1, p2, p3]).then(console.log); 
+        Promise.all([p1, p2, p4]).catch(console.log)
+
+        //Promise.allSettled(promises) - Waits for all promises to settle, regardless of whether they are fulfilled or rejected, returns an array of results.
+       
+        const a = Promise.resolve("ok");
+        const b = Promise.reject("error");
+        Promise.allSettled([a, b]).then(console.log)
+
+
+        //Promise.resolve 
+        Promise.resolve("Hey Tezz").then(console.log);
+        //Promise.reject
+        Promise.reject("Something went wrong").catch(console.log);
+
+        //Promise.race() -  Settles (fulfills/rejects) as soon as the first promise settles.
+        const slow = new Promise(res => setTimeout(() => res('Slow'), 1000));
+        const fast = new Promise(res => setTimeout(() => res('Fast'), 100));
+        Promise.race([slow, fast]).then(console.log);
+
+
+        //async/await
+        function wait(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
+        async function sayHello() {
+          console.log(" Waiting...");
+          await wait(1000); // waits 1 second
+          console.log("👋 Hello after 1 second!");
+        }
+        
+        sayHello();
+        
+
+        
+//Spread and Rest operators
+let arr1 = [1,2,3,4,5];
+let arr2 = [...arr1,6,7,8,9,10];
+console.log(arr2);
+
+//Rest Operator
+const [FIRST , ...REST] = [1,2,3,4,5]
+console.log(REST)
